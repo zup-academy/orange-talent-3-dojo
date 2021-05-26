@@ -5,5 +5,5 @@ import io.micronaut.data.jpa.repository.JpaRepository
 
 @Repository
 interface AutorRepository: JpaRepository<Autor, Long> {
-    fun existsByEmail(email: String)
+    fun existsByEmail(email: String?): Boolean
 }
