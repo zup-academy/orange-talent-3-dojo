@@ -4,17 +4,16 @@ import br.com.zup.edu.CadastraAutorServiceGrpc
 import br.com.zup.edu.NovoAutorRequest
 import br.com.zup.edu.NovoAutorResponse
 import io.grpc.stub.StreamObserver
+import javax.inject.Singleton
 
+@Singleton
 class CadastraAutorEndpoint : CadastraAutorServiceGrpc.CadastraAutorServiceImplBase() {
 
-    override fun cadastraAutor(request: NovoAutorRequest?,
-                               responseObserver: StreamObserver<NovoAutorResponse>?) {
+    override fun cadastraAutor(
+        request: NovoAutorRequest?,
+        responseObserver: StreamObserver<NovoAutorResponse>?
+    ) {
 
-       // TODO
-        Autor(nome=  request.nome,
-              email = request.email,
-              descricao = request.descricao)
-
-       val autor = request.toModel()
+        val autor = request?.toModel()
     }
 }
